@@ -8,6 +8,7 @@ use Carp ();
 use Data::OptList 0.100 ();
 use Params::Util 0.14 (); # _CODELIKE
 use Sub::Install 0.92 ();
+use Sub::Exporter::Import;
 
 =head1 SYNOPSIS
 
@@ -753,6 +754,8 @@ sub build_exporter {
       $to_import,
     );
   };
+
+  Sub::Exporter::Import->new( $import, $config );
 
   return $import;
 }
